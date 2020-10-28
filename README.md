@@ -24,7 +24,7 @@ This chart will do the following:
 ## Installing the chart
 To install the chart with the release name `kafka` in the `kafka` namespace:
 ```
-kubectl create ns kafka
+helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
 
 helm install kafka incubator/kafka -f helm/values.yaml
 ```
