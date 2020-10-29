@@ -24,9 +24,11 @@ This chart will do the following:
 ## Installing the chart
 To install the chart with the release name `kafka` in the `kafka` namespace:
 ```
+helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
+
 kubectl create ns kafka
 
-helm install kafka incubator/kafka -f helm/values.yaml
+helm install kafka --namespace kafka incubator/kafka -f helm/values.yaml
 ```
 
 This will spin up the pods with mentioned configuration in the file `values.yaml`. 
