@@ -64,7 +64,8 @@ pipeline {
     stage('Helm upgrade with incubator kafka repo') {
       steps{
         sh "./linux-amd64/helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator --force-update"
-        sh "./linux-amd64/helm upgrade kafka incubator/kafka -f pre-req/values.yaml --recreate-pods"
+        sh "./linux-amd64/helm upgrade kafka incubator/kafka -f pre-req/values.yaml"
+        //sh "./linux-amd64/helm upgrade kafka incubator/kafka -f pre-req/values.yaml --recreate-pods"
       }
     }
   }
