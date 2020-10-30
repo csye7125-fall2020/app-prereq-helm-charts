@@ -21,10 +21,17 @@ This chart will do the following:
 - Implement a dynamically scalable kafka cluster using Kubernetes StatefulSets
 - Implement a dynamically scalable zookeeper cluster as another Kubernetes StatefulSet required for the Kafka cluster above
 
-## Installing the chart
+## Installing the chart in default namespace
+```
+helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator --force-update
+
+helm install kafka incubator/kafka -f helm/values.yaml
+```
+
+## Installing the chart with new namespace
 To install the chart with the release name `kafka` in the `kafka` namespace:
 ```
-helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
+helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator --force-update
 
 kubectl create ns kafka
 
