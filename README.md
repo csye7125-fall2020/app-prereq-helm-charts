@@ -1,6 +1,6 @@
 # Prereq helm charts for running applications on kubernetes cluster
 This helm chart is using StatefulSet of Kubernetes-Kafka.
-
+Demo
 ## Team Members:
 1. Rajashree Joshi
 1. Kinnar Kansara
