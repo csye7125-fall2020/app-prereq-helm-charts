@@ -14,7 +14,7 @@ This helm chart is using StatefulSet of Kubernetes-Kafka.
 
 https://github.com/roboll/helmfile
 
-### Deeps
+### Deps
 For downloading chart dependencies, use 
 ```
 helmfile deps
