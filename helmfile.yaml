@@ -1,0 +1,53 @@
+repositories:
+
+- name: stable
+  url: https://charts.helm.sh/stable  # Helm stable charts (some are depricated to below mentioned are official repos)
+
+- name: incubator
+  url: http://storage.googleapis.com/kubernetes-charts-incubator  # Kafka
+
+- name: elastic
+  url: https://helm.elastic.co  # Elasticsearch, Kibana
+
+- name: kokuwa
+  url: https://kokuwaio.github.io/helm-charts # Fluentd Elasticsearch
+
+- name: prometheus-community
+  url: https://prometheus-community.github.io/helm-charts # Prometheus, Alertmanager
+
+- name: grafana
+  url: https://grafana.github.io/helm-charts # Grafana
+
+releases:
+  # Published chart example
+  - name: kafka                             # name of this release
+    chart: incubator/kafka                  # the chart being installed to create this release, referenced by `repository/chart` syntax
+    # Values files used for rendering the chart
+    values:
+      # Value files passed via --values
+      - pre-req/kafka-values.yaml
+  
+  - name: elasticsearch
+    chart: elastic/elasticsearch
+    values:
+      - pre-req/elasticsearch-values.yml
+  
+  - name: kibana
+    chart: elastic/kibana
+    values:
+      - pre-req/kibana-values.yml
+  
+  - name: fluentd
+    chart: kokuwa/fluentd-elasticsearch
+    values:
+      - pre-req/fluentd-values.yml
+
+  - name: prometheus
+    chart: prometheus-community/prometheus
+    values:
+      - pre-req/prometheus-values.yml
+
+  - name: grafana
+    chart: grafana/grafana
+    values:
+      - pre-req/grafana-values.yml
