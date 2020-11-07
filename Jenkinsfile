@@ -12,6 +12,7 @@ pipeline {
         sh "echo ${env.GIT_URL}"
       }
     }
+    /*
     stage('Install kubectl') {
       steps {
         //Installing kubectl in Jenkins agent
@@ -26,7 +27,7 @@ pipeline {
         sh 'curl -LO https://github.com/kubernetes/kops/releases/download/v1.18.1/kops-linux-amd64'
         sh 'chmod +x ./kops-linux-amd64 && mv kops-linux-amd64 kops'
       }
-    }
+    }*/
     stage('Export kubecfg via kops') {
       steps {
         //Exporting kubecfg for kubectl so helm can upgrade
@@ -40,6 +41,7 @@ pipeline {
         sh "./kubectl get pod"
       }
     }
+    /*
     stage('Install helm') {
       steps {
         //Installing helm in Jenkins agent
@@ -48,7 +50,7 @@ pipeline {
         //sh 'chmod +x ./linux-amd64/helm && sudo mv linux-amd64/helm /usr/local/bin/helm'
         sh 'chmod +x linux-amd64/helm'
       }
-    }
+    }*/
     stage('Cloning Git') {
       steps {
         git credentialsId: 'git_fork_private_key', url: "${env.GIT_URL}"
@@ -61,10 +63,11 @@ pipeline {
            }
        }
     }
-    stage('Helm upgrade with incubator kafka repo') {
+    stage('Upgrade helm charts with helmfile') {
       steps{
-        sh "./linux-amd64/helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator --force-update"
-        sh "./linux-amd64/helm upgrade kafka incubator/kafka -f pre-req/values.yaml"
+        sh "helmfile apply"
+        //sh "./linux-amd64/helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator --force-update"
+        //sh "./linux-amd64/helm upgrade kafka incubator/kafka -f pre-req/values.yaml"
         //sh "./linux-amd64/helm upgrade kafka incubator/kafka -f pre-req/values.yaml --recreate-pods"
       }
     }

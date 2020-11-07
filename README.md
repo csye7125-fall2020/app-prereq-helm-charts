@@ -11,6 +11,38 @@ This helm chart is using StatefulSet of Kubernetes-Kafka.
 1. PV support on underlying infrastructure
 1. Requires at least v2.0.0-beta.1 version of helm to support dependency management with requirements.yaml
 
+## Helmfile
+
+https://github.com/roboll/helmfile
+
+### Deps
+For downloading chart dependencies, use 
+```
+helmfile deps
+```
+
+### Sync
+To sync your cluster state as described in your `helmfile`. **Execute this when deploying services for the first time.**
+```
+helmfile sync
+```
+
+### Apply
+Begins by executing `diff`. If `diff` finds that there is any changes, sync is executed
+```
+helmfile apply
+```
+
+### destroy
+deletes and purges all the releases defined in the manifests
+```
+helmfile destroy
+```
+
+
+### ** Below entire thing is deprecated **
+
+
 ## StatefulSet Details
 - https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/
 
