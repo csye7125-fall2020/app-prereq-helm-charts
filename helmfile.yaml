@@ -36,7 +36,7 @@ releases:
     chart: elastic/kibana
     values:
       - pre-req/kibana-values.yml
-  
+
   - name: fluentd
     chart: kokuwa/fluentd-elasticsearch
     values:

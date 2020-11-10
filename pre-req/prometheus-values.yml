@@ -1,0 +1,14 @@
+server:
+  global:
+    scrape_interval:     15s
+    evaluation_interval: 15s
+
+serverFiles:
+
+  prometheus.yml:
+
+    scrape_configs:
+      - job_name: webapp
+
+        static_configs:
+          - targets: [ 'webapp-service:80' ]
