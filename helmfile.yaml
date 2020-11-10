@@ -25,6 +25,7 @@ releases:
     # Values files used for rendering the chart
     values:
       # Value files passed via --values
+      # Prometheus-exporter is built in and parameters can be changed from this file
       - pre-req/kafka-values.yaml
   
   - name: elasticsearch
@@ -51,3 +52,8 @@ releases:
     chart: grafana/grafana
     values:
       - pre-req/grafana-values.yml
+
+  - name: prometheus-elasticsearch-exporter
+    chart: prometheus-community/prometheus-elasticsearch-exporter
+    values:
+      - pre-req/prometheus-elasticsearch-exporter-values.yml

@@ -307,7 +307,7 @@ prometheus:
 
   ## Prometheus Kafka Exporter: exposes complimentary metrics to JMX Exporter
   kafka:
-    enabled: false
+    enabled: true
 
     ## The image to use for the metrics collector
     image: danielqsj/kafka-exporter
