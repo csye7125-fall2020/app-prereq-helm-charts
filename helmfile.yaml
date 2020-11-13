@@ -57,3 +57,8 @@ releases:
     chart: prometheus-community/prometheus-elasticsearch-exporter
     values:
       - pre-req/prometheus-elasticsearch-exporter-values.yml
+
+  - name: prometheus-adapter
+    chart: prometheus-community/prometheus-adapter
+    values:
+      - pre-req/prometheus-adapter-values.yml
