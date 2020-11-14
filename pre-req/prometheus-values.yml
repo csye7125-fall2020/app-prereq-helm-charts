@@ -16,3 +16,7 @@ serverFiles:
       - job_name: elastic_exporter
         static_configs:
           - targets: [ 'prometheus-elasticsearch-exporter:9108' ]
+
+      - job_name: kafka_exporter
+        static_configs:
+          - targets: ['kafka:5555']
