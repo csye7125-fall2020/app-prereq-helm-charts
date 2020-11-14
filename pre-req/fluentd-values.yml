@@ -1,5 +1,5 @@
 elasticsearch:
-  host: elasticsearch-master.default.svc.cluster.local
+  hosts: ["elasticsearch-master.default.svc.cluster.local:9200"]
 
 configMaps:
   useDefaults:

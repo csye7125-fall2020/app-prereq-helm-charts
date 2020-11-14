@@ -12,3 +12,7 @@ serverFiles:
 
         static_configs:
           - targets: [ 'webapp-service:80' ]
+
+      - job_name: elastic_exporter
+        static_configs:
+          - targets: [ 'prometheus-elasticsearch-exporter:9108' ]
