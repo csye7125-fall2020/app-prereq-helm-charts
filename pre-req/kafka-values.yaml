@@ -368,11 +368,11 @@ prometheus:
 
   operator:
     ## Are you using Prometheus Operator?
-    enabled: false
+    enabled: true
 
     serviceMonitor:
       # Namespace in which to install the ServiceMonitor resource.
-      namespace: monitoring
+      namespace: default
       # Use release namespace instead
       releaseNamespace: false
 
@@ -384,10 +384,10 @@ prometheus:
 
     prometheusRule:
       ## Add Prometheus Rules?
-      enabled: false
+      enabled: true
 
       ## Namespace in which to install the PrometheusRule resource.
-      namespace: monitoring
+      namespace: default
       # Use release namespace instead
       releaseNamespace: false
 
