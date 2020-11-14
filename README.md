@@ -39,8 +39,59 @@ deletes and purges all the releases defined in the manifests
 helmfile destroy
 ```
 
+## Repos and Helm Charts used
+1. Helm Stable
+    
+   https://charts.helm.sh/stable (https://github.com/helm/charts/tree/master/stable)
 
-### ** Below entire thing is deprecated **
+1. Helm Incubator
+
+   http://storage.googleapis.com/kubernetes-charts-incubator (https://github.com/helm/charts/tree/master/incubator)
+
+1. Helm ElasticSearch with Kibana
+
+    https://helm.elastic.co (https://github.com/elastic/helm-charts)
+
+1. Fluentd Elasticsearch
+
+    https://kokuwaio.github.io/helm-charts
+
+1. Prometheus, Alertmanager
+
+    https://prometheus-community.github.io/helm-charts
+
+1. Grafana
+
+    https://grafana.github.io/helm-charts
+
+
+## Grafana Dashboard
+
+Run Server
+```
+export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernet.io/name=grafana,app.kubernetes.io/instance=grafana" -o jsonpath="{.items[0].metadata.name}")
+
+kubectl --namespace default port-forward $POD_NAME 3000
+```
+
+For getting password for `admin` (default) user,
+```
+kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+```
+
+### Kafka Dashboards
+After opening http://localhost:3000 in browser,
+
+1. Add your first data source. Select Prometheus as data source and select browser in http access. Save & Test.
+1. Select Dashboard from left menu and then import. Grafana Dashboard ID: 7589, name: Kafka Exporter Overview. Details: https://grafana.com/dashboards/7589
+
+** Other good dashboards are with ids 721 and 762 **
+
+### References
+- https://github.com/helm/charts/tree/master/incubator/kafka
+- https://medium.com/better-programming/how-to-run-highly-available-kafka-on-kubernetes-a1824db8a3e2
+
+### ** Below information and usage are deprecated **
 
 
 ## StatefulSet Details
@@ -98,6 +149,4 @@ kubectl exec -ti testclient -- ./bin/kafka-console-consumer.sh --bootstrap-serve
 ```
 
 
-### References
-- https://github.com/helm/charts/tree/master/incubator/kafka
-- https://medium.com/better-programming/how-to-run-highly-available-kafka-on-kubernetes-a1824db8a3e2
+
