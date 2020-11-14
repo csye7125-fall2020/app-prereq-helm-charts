@@ -4,7 +4,7 @@ repositories:
   url: https://charts.helm.sh/stable  # Helm stable charts (some are depricated to below mentioned are official repos)
 
 - name: incubator
-  url: http://storage.googleapis.com/kubernetes-charts-incubator  # Kafka
+  url: https://charts.helm.sh/incubator  # Kafka
 
 - name: elastic
   url: https://helm.elastic.co  # Elasticsearch, Kibana
