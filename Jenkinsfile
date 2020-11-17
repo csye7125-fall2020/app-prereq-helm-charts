@@ -31,14 +31,14 @@ pipeline {
     stage('Export kubecfg via kops') {
       steps {
         //Exporting kubecfg for kubectl so helm can upgrade
-        sh './kops export kubecfg'
+        sh 'kops export kubecfg'
       }
     }
     stage('Show kubectl nodes') {
       steps {
         sh "echo showing_nodes"
-        sh "./kubectl get node"
-        sh "./kubectl get pod"
+        sh "kubectl get node"
+        sh "kubectl get pod"
       }
     }
     /*
