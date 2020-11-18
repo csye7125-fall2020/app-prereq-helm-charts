@@ -60,7 +60,13 @@ releases:
       - pre-req/prometheus-elasticsearch-exporter-values.yml
     recreatePods: true
 
-  - name: prometheus-adapter
-    chart: prometheus-community/prometheus-adapter
-    values:
-      - pre-req/prometheus-adapter-values.yml
+  # - name: prometheus-adapter
+  #   chart: prometheus-community/prometheus-adapter
+  #   values:
+  #     - pre-req/prometheus-adapter-values.yml
+
+  - name: kafka-exporter
+    chart: ./kafka-exporter
+    # values:
+    # - "./kafka-exporter/values.yaml"
+    # recreatePods: true
