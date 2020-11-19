@@ -249,13 +249,13 @@ jmx:
     ## Allows setting values to generate confimap
     ## To allow all metrics through (warning its crazy excessive) comment out below `overrideConfig` and set
     ## `whitelistObjectNames: []`
-    overrideConfig: #{}
-      jmxUrl: service:jmx:rmi:///jndi/rmi://127.0.0.1:5555/jmxrmi
-      lowercaseOutputName: true
-      lowercaseOutputLabelNames: true
-      ssl: false
-      rules:
-      - pattern: ".*"
+    overrideConfig: {}
+      # jmxUrl: service:jmx:rmi:///jndi/rmi://127.0.0.1:5555/jmxrmi
+      # lowercaseOutputName: true
+      # lowercaseOutputLabelNames: true
+      # ssl: false
+      # rules:
+      # - pattern: ".*"
 
     ## If you would like to supply your own ConfigMap for JMX metrics, supply the name of that
     ## ConfigMap as an `overrideName` here.
@@ -268,7 +268,7 @@ jmx:
   ## values will be exposed via JMX Exporter.  They must also be exposed via Rules.  To expose all metrics
   ## (warning its crazy excessive and they aren't formatted in a prometheus style) (1) `whitelistObjectNames: []`
   ## (2) commented out above `overrideConfig`.
-  whitelistObjectNames: # []
+  whitelistObjectNames: #[]
    - kafka.controller:*
    - kafka.server:*
    - java.lang:*
@@ -368,7 +368,7 @@ prometheus:
 
   operator:
     ## Are you using Prometheus Operator?
-    enabled: true
+    enabled: false
 
     serviceMonitor:
       # Namespace in which to install the ServiceMonitor resource.
@@ -384,7 +384,7 @@ prometheus:
 
     prometheusRule:
       ## Add Prometheus Rules?
-      enabled: true
+      enabled: false
 
       ## Namespace in which to install the PrometheusRule resource.
       namespace: default
