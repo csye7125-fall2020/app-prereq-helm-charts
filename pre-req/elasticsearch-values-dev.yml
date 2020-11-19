@@ -8,10 +8,12 @@ esJavaOpts: "-Xmx128m -Xms128m"
 resources:
   requests:
     cpu: "100m"
-    memory: "512M"
+    memory: "128M"
   limits:
     cpu: "1000m"
     memory: "512M"
+
+# clusterHealthCheckParams: "wait_for_status=yellow&timeout=1s"
 
 # Request smaller persistent volumes.
 volumeClaimTemplate:
@@ -19,4 +21,4 @@ volumeClaimTemplate:
   storageClassName: "standard"
   resources:
     requests:
-      storage: 100M
+      storage: 500M
