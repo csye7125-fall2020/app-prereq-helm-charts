@@ -64,7 +64,7 @@ releases:
     chart: prometheus-community/prometheus-elasticsearch-exporter
     values:
       - pre-req/prometheus-elasticsearch-exporter-values.yml
-    recreatePods: true
+    # recreatePods: true
 
   # - name: prometheus-adapter
   #   chart: prometheus-community/prometheus-adapter
