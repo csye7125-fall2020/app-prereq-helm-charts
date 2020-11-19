@@ -3,7 +3,7 @@ server:
     scrape_interval: 15s
     evaluation_interval: 15s
   persistentVolume:
-    size: 2Gi
+    size: 1Gi
 
 # serverFiles:
 

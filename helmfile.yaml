@@ -32,7 +32,7 @@ releases:
       # Value files passed via --values
       # Prometheus-exporter is built in and parameters can be changed from this file
       - pre-req/kafka-values.yaml
-    recreatePods: true
+    # recreatePods: true
   
   - name: elasticsearch
     chart: elastic/elasticsearch
@@ -53,7 +53,7 @@ releases:
     chart: prometheus-community/prometheus
     values:
       - pre-req/prometheus-values-{{ .Environment.Name | default "prod" }}.yml
-    recreatePods: true
+    # recreatePods: true
 
   - name: grafana
     chart: grafana/grafana
@@ -64,7 +64,7 @@ releases:
     chart: prometheus-community/prometheus-elasticsearch-exporter
     values:
       - pre-req/prometheus-elasticsearch-exporter-values.yml
-    # recreatePods: true
+    recreatePods: true
 
   # - name: prometheus-adapter
   #   chart: prometheus-community/prometheus-adapter

@@ -3,7 +3,7 @@ server:
     scrape_interval: 15s
     evaluation_interval: 15s
   # persistentVolume:
-  #   size: 2Gi
+  #   size: 4Gi
 
 # serverFiles:
 
@@ -30,17 +30,17 @@ server:
 #         static_configs:
 #           - targets: ['kafka-exporter:9308']
 
-extraScrapeConfigs: |
-  - job_name: 'elastic_exporter'
-    metrics_path: /metrics
-    static_configs:
-      - targets:
-        - 'prometheus-elasticsearch-exporter:9108'
-  - job_name: 'webapp'
-    metrics_path: /metrics
-    static_configs:
-      - targets:
-        - 'webapp-service:80'
+# extraScrapeConfigs: |
+#   - job_name: 'elastic_exporter'
+#     metrics_path: /metrics
+#     static_configs:
+#       - targets:
+#         - 'prometheus-elasticsearch-exporter:9108'
+#   - job_name: 'webapp'
+#     metrics_path: /metrics
+#     static_configs:
+#       - targets:
+#         - 'webapp-service:80'
 
   # - job_name: 'kafka-exporter'
   #   metrics_path: /metrics
