@@ -21,4 +21,4 @@ volumeClaimTemplate:
   storageClassName: "gp2"
   resources:
     requests:
-      storage: 100M
+      storage: 20G

@@ -18,6 +18,11 @@ repositories:
 - name: grafana
   url: https://grafana.github.io/helm-charts # Grafana
 
+environments:
+  dev:
+  test:
+  prod:
+
 releases:
   # Published chart example
   - name: kafka                             # name of this release
@@ -27,11 +32,12 @@ releases:
       # Value files passed via --values
       # Prometheus-exporter is built in and parameters can be changed from this file
       - pre-req/kafka-values.yaml
+    recreatePods: true
   
   - name: elasticsearch
     chart: elastic/elasticsearch
     values:
-      - pre-req/elasticsearch-values.yml
+      - pre-req/elasticsearch-values-{{ .Environment.Name | default "prod" }}.yml
   
   - name: kibana
     chart: elastic/kibana
@@ -46,7 +52,7 @@ releases:
   - name: prometheus
     chart: prometheus-community/prometheus
     values:
-      - pre-req/prometheus-values.yml
+      - pre-req/prometheus-values-{{ .Environment.Name | default "prod" }}.yml
     recreatePods: true
 
   - name: grafana
@@ -58,15 +64,15 @@ releases:
     chart: prometheus-community/prometheus-elasticsearch-exporter
     values:
       - pre-req/prometheus-elasticsearch-exporter-values.yml
-    recreatePods: true
+    # recreatePods: true
 
   # - name: prometheus-adapter
   #   chart: prometheus-community/prometheus-adapter
   #   values:
   #     - pre-req/prometheus-adapter-values.yml
 
-  - name: kafka-exporter
-    chart: ./kafka-exporter
+  # - name: kafka-exporter
+  #   chart: ./kafka-exporter
     # values:
     # - "./kafka-exporter/values.yaml"
     # recreatePods: true

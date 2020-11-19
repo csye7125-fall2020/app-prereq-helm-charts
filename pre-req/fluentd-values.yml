@@ -6,3 +6,11 @@ configMaps:
     systemInputConf: false
     forward.input.conf: false
     monitoring.conf: false
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 500Mi
+  requests:
+    cpu: 100m
+    memory: 200Mi
