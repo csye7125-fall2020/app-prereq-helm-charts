@@ -47,6 +47,7 @@ releases:
     chart: prometheus-community/prometheus
     values:
       - pre-req/prometheus-values.yml
+    recreatePods: true
 
   - name: grafana
     chart: grafana/grafana
