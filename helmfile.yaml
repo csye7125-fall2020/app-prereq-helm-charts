@@ -22,6 +22,7 @@ environments:
   dev:
   test:
   prod:
+  gke:
 
 releases:
   # Published chart example
