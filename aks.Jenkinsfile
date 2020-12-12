@@ -44,7 +44,7 @@ pipeline {
     }
     stage('Upgrade helm charts with helmfile') {
       steps{
-        sh "helmfile sync"
+        sh "helmfile -e gke sync"
         //sh "./linux-amd64/helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator --force-update"
         //sh "./linux-amd64/helm upgrade kafka incubator/kafka -f pre-req/values.yaml"
         //sh "./linux-amd64/helm upgrade kafka incubator/kafka -f pre-req/values.yaml --recreate-pods"
